@@ -1,0 +1,79 @@
+<button type="button" class="btn btn-primary btn-sm mb-1 mt-2"
+        data-toggle="modal" data-target="#myModal2" *ngIf="user.is_staff"
+        (click)="addClick()"
+        data-backdrop="static" data-keyboard="false">Добавить сотрудника</button>
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle2}}</h5>
+        <button type="button" class="close"
+                data-dismiss="modal" aria-label="Close"
+                (click)="closeClick()" >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-add-edit-wor [worker]="worker" *ngIf="ActivateAddEditWor">
+        </app-add-edit-wor>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-sm">
+  <thead>
+  <tr>
+    <th>
+      <div class="d-flex flex-row">
+        <input [(ngModel)]="WorkersNameFilter" class="form-control"
+               (keyup)="FilterFn()" placeholder="Filter">
+      </div>
+
+      Name</th>
+    <th>
+      <div class="d-flex flex-row">
+        <input [(ngModel)]="WorkersEmailFilter" class="form-control"
+               (keyup)="FilterFn()" placeholder="Filter">
+      </div>
+      Phone</th>
+    <th>
+      <div class="d-flex flex-row">
+        <input [(ngModel)]="WorkersPhoneFilter" class="form-control"
+               (keyup)="FilterFn()" placeholder="Filter">
+      </div>
+
+      Email</th>
+    <th>
+      <div class="d-flex flex-row">
+        <input [(ngModel)]="WorkersPosFilter" class="form-control"
+               (keyup)="FilterFn()" placeholder="Filter">
+      </div>
+      Position</th>
+    <th>Отдел</th>
+    <th *ngIf="user.is_staff">Options</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let dataItem of Workers">
+    <td>{{dataItem.name}}</td>
+    <td>{{dataItem.email}}</td>
+    <td>{{dataItem.phone}}</td>
+    <td>{{dataItem.position}}</td>
+    <td>{{dataItem.category.name}}</td>
+    <td>
+      <button *ngIf="user.is_staff" type="button" class="btn btn-primary btn-sm mr-2"
+              data-toggle="modal" data-target="#myModal2"
+              (click)="editClick(dataItem)"
+              data-backdrop="static" data-keyboard="false"
+      >Редактировать</button>
+      <button *ngIf="user.is_staff" type="button" class="btn btn-primary btn-sm mr-2"
+              (click)="deleteClick(dataItem)"
+      >Удалить</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
