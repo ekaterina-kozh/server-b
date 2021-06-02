@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Электронная почта пользователя</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<h1 style="text-align: center; margin: 15px 0;">Информация о пользователе</h1>
+<div class="container container-small" style="display: grid; margin-top: 40px">
+
+    <a href="/" class="stretched-link" style="margin-bottom: 10px; float: right">К списку пользователей</a>
+    <input type="hidden" name="id" value="{{user.id}}"/>
+    <ul class="list-group list-group-flush">
+        {{#each documents}}
+            <p><a href="/show/sdata/{{this.id_user}}/edit" class="btn btn-primary btn-sm btn-block" style="text-align: center">Изменить данные</a></p>
+            <div class="form-group row">
+                <label for="login" class="col-sm-5 col-form-label">Логин</label>
+                <div class="col-sm-7">
+                    <div class="form-control-plaintext" id="login">{{this.login}}</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="pass" class="col-sm-5 col-form-label">Пароль</label>
+                <div class="col-sm-7">
+                    <input disabled class="form-control-plaintext" id="pass" type="password" value="{{this.password}}"/>
+                </div>
+            </div>
+        {{/each}}
+    </ul>
+</div>
+</body>
+</html>

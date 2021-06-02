@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Редактирование пользователя</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<h1 style="text-align: center; margin: 15px 0;">Редактирование пользователя</h1>
+<div class="container container-small">
+
+    <a href="/" class="stretched-link" style="margin-bottom: 10px; float: right">К списку пользователей</a>
+    <form action="/edit" method="POST">
+        <input type="hidden" name="id" value="{{user.id}}"/>
+        <div class="form-group">
+            <label>Фото</label><br>
+            <img src="{{user.photo}}" id="photo" height="120px" width="120px" alt="photo"/>
+            <input type="button" value="Удалить фотографию" class="btn btn-primary" onclick="function sendm(){
+                document.getElementById('photo').setAttribute('src', '');
+        }; sendm()"/>
+        </div>
+        <div class="form-group">
+            <label>Фамилия</label><br>
+            <input name="lastname" class="form-control" value="{{user.lastname}}"/>
+        </div>
+
+        <div class="form-group">
+            <label>Имя</label><br>
+            <input name="firstname" class="form-control" value="{{user.firstname}}"/>
+        </div>
+
+        <div class="form-group">
+            <label>Отчество</label><br>
+            <input name="middle_name" class="form-control" value="{{user.middle_name}}"/>
+        </div>
+
+        <div class="form-group">
+            <label>Дата рождения</label><br>
+            <input name="birth" class="form-control" value="{{user.birth}}"/>
+        </div>
+
+        <div class="form-group">
+            <label>Адрес</label><br>
+            <input name="address" class="form-control" value="{{user.address}}"/>
+        </div>
+
+        <div class="form-group">
+            <label>Ник</label><br>
+            <input name="nik" class="form-control" value="{{user.nik}}"/>
+        </div>
+
+        <div class="form-group">
+            <label>Тип клиента</label><br>
+            <input name="type_cl" class="form-control" value="{{user.type_cl}}"/>
+        </div>
+
+        <input type="submit" value="Отправить" class="btn btn-primary"/>
+    </form>
+</div>
+</body>
+<html>

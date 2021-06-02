@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Добавление пользователя</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<h1 style="text-align: center; margin: 15px 0;">Добавление пользователя</h1>
+<div class="container container-small">
+    <a href="/" class="stretched-link" style="margin-bottom: 10px; float: right">К списку пользователей</a>
+    <h5>Личные данные</h5>
+    <form method="POST">
+        <div class="form-group">
+            <label>Фамилия</label><br>
+            <input name="lastname" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Имя</label><br>
+            <input name="firstname" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Отчество</label><br>
+            <input name="middle_name" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Дата рождения</label><br>
+            <input name="birth" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Адрес</label><br>
+            <input name="address" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Ник</label><br>
+            <input name="nik" class="form-control"/>
+        </div>
+
+        <div class="form-group" style="display: none">
+            <label>Фото</label><br>
+            <input type="file" name="photo" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Тип клиента</label><br>
+            <input name="type_cl" class="form-control"/>
+        </div>
+
+        <hr>
+        <hr>
+
+        <h5>Документы</h5>
+
+        <div class="form-group">
+            <label>Индентификационный номер</label>
+            <input name="in" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Серия и номер паспорта</label>
+            <input type="text" name="snp" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Кем выдан</label>
+            <input type="text" class="form-control" name="kv"/>
+        </div>
+        <div class="form-group">
+            <label>Дата выдачи</label>
+            <input type="text" class="form-control" name="data_v"/>
+        </div>
+
+        <hr>
+        <hr>
+        <h5>Номер телефона</h5>
+        <div class="form-group">
+            <label>Номер телефона</label>
+            <input type="text" class="form-control" name="phone" id="phone"/>
+        </div>
+
+        <hr>
+        <hr>
+        <h5>Вход в ИБ</h5>
+        <div class="form-group">
+            <label>Логин</label>
+            <input type="text" class="form-control" name="login" id="log"/>
+        </div>
+        <div class="form-group">
+            <label>Пароль</label>
+            <input type="password" class="form-control" name="password" id="pas"/>
+        </div>
+
+        <hr>
+        <hr>
+        <h5>Вход в мобильное приложение</h5>
+        <div class="form-group">
+            <label>ПИН-КОД</label>
+            <input type="text" class="form-control" name="pin" id="pin"/>
+        </div><br>
+
+        <input type="submit" value="Отправить" class="btn btn-primary"/>
+    </form>
+
+</div>
+<br>
+</body>
+<html>

@@ -1,0 +1,28 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.0",
+    "body-parser": "^1.19.0",
+    "bootstrap-icons": "^1.4.1",
+    "cheerio": "^1.0.0-rc.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "hbs": "^4.1.2",
+    "ip": "^1.1.5",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "request": "^2.88.2"
+  },
+  "description": "",
+  "devDependencies": {
+    "needle": "^2.6.0"
+  }
+}

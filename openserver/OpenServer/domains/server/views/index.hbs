@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список пользователей</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="utf-8"/>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<h1 style="text-align: center; margin: 15px 0;">Список пользователей</h1>
+<div class="container-lg" style="margin: 20px 40px">
+    <p><a href="/create" class="btn btn-primary btn-lg btn-block" style="text-align: center">Добавить пользователя</a></p>
+    <table class="table table-sm">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Отчество</th>
+            <th scope="col">Адрес</th>
+            <th scope="col">Ник</th>
+            <th scope="col">Фотография</th>
+            <th scope="col">Тип клиента</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each users}}
+            <tr>
+                <td scope="row">{{this.id}}</td>
+                <td scope="row">{{this.lastname}}</td>
+                <td scope="row">{{this.firstname}}</td>
+                <td scope="row">{{this.middle_name}}</td>
+                <td scope="row">{{this.address}}</td>
+                <td scope="row">{{this.nik}}</td>
+                <td scope="row"><img src="{{this.photo}}" alt="photo" height="50px" width="50px"
+                                     class="rounded mx-auto d-block"/></td>
+                <td scope="row">{{this.type_cl}}</td>
+                <td scope="row">
+                    <a href="/show/{{this.id}}" class="btn btn-outline-secondary">Посмотреть</a>
+                </td>
+                <td scope="row">
+                    <a href="/edit/{{this.id}}" class="btn btn-outline-primary">Изменить</a>
+                </td>
+                <td scope="row">
+                    <form action="delete/{{this.id}}" method="POST" style="display:inline;" >
+                        <input type="submit" value="Удалить" class="btn btn-primary"/>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+</body>
+<html>

@@ -1,0 +1,22 @@
+div{
+  margin: 3% 1px;
+}
+
+.question{
+  float: left;
+  padding: 1%;
+  background: #c1bebe;
+  color: white;
+  width: 30%;
+  border-radius: 10%;
+}
+
+
+.answer{
+  float: right;
+  padding: 1%;
+  background: #66cd5b;
+  color: white;
+  width: 30%;
+  border-radius: 10%;
+}

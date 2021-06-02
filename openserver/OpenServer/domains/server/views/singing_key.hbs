@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Электронная почта пользователя</title>
+    <meta charset="utf-8"/>
+
+    <style>
+        .yeas{
+            position: absolute;
+            right: 0;
+            margin: 10px;
+            height: 16px;
+            width: 16px;
+        }
+    </style>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+<h1 style="text-align: center; margin: 15px 0;">Информация о пользователе</h1>
+<div class="container container-small" style="display: grid; margin-top: 40px">
+
+    <a href="/" class="stretched-link" style="margin-bottom: 10px; float: right">К списку пользователей</a>
+    <form action="/keys_s/edit" method="POST" class="list-group list-group-flush">
+        <input type="hidden" name="id_user" value="{{keys_s.id_user}}">
+        <div class="form-group row">
+            <label for="pin" class="col-sm-5 col-form-label">ПИН-КОД</label>
+            <div class="col-sm-7">
+                <input type="password" style="position: absolute" class="form-control-plaintext" id="pin" name="pin" value="{{keys_s.pin}}"/>
+                <svg xmlns="http://www.w3.org/2000/svg" id="3" class="bi bi-eye yeas"
+                     fill="currentColor" onclick="function click(){
+                             document.getElementById('3').setAttribute('style', 'visibility:hidden');
+                             document.getElementById('4').setAttribute('style', 'visibility:visible');
+                             document.getElementById('pin').setAttribute('type', 'text');
+                         }; click()">
+                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-eye-slash yeas" id="4" style="visibility:hidden;" viewBox="0 0 16 16"
+                     onclick="function click1(){
+                             document.getElementById('4').setAttribute('style', 'visibility:hidden');
+                             document.getElementById('3').setAttribute('style', 'visibility:visible');
+                             document.getElementById('pin').setAttribute('type', 'password');
+                         }; click1()">
+                    <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z"/>
+                    <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z"/>
+                    <path d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12-.708.708z"/>
+                </svg>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="graf" class="col-sm-5 col-form-label">Графический ключ</label>
+            <div class="col-sm-7">
+                <input type="password" style="position: absolute" id="graf" class="form-control-plaintext" name="graf" value="{{keys_s.graf}}">
+                <svg xmlns="http://www.w3.org/2000/svg" id="1" class="bi bi-eye yeas"
+                     fill="currentColor" onclick="function click(){
+                             document.getElementById('1').setAttribute('style', 'visibility:hidden');
+                             document.getElementById('2').setAttribute('style', 'visibility:visible');
+                             document.getElementById('graf').setAttribute('type', 'text');
+                         }; click()">
+                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-eye-slash yeas" id="2" style="visibility:hidden;" viewBox="0 0 16 16"
+                     onclick="function click1(){
+                             document.getElementById('2').setAttribute('style', 'visibility:hidden');
+                             document.getElementById('1').setAttribute('style', 'visibility:visible');
+                             document.getElementById('graf').setAttribute('type', 'password');
+                         }; click1()">
+                    <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z"/>
+                    <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z"/>
+                    <path d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12-.708.708z"/>
+                </svg>
+            </div>
+        </div>
+        <input type="submit" value="Отправить" class="btn btn-primary"/>
+    </form>
+</div>
+</body>
+</html>

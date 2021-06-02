@@ -1,0 +1,28 @@
+<div class="container">
+  <!--<div class="bot-tell">
+    Здравствуйте, я бот мобильного приложения БелВЭБ банка. Чем я могу помочь? (Нужно выбрать ответ)
+  </div>
+  <select name="first-question" #t (change)="changeCity(t.value)">
+    <option *ngFor="let item of values_ru" [value]="item.value">{{item.mean}}</option>
+  </select>-->
+  <!--<div *ngIf="answer == 'transfer'">Хорошо, делаем перевод. Введите номер карты получателя и сумму перевода. (Через пробел) </div>
+  <div *ngIf="answer=='mobile'">Отлично, давайте пополним счет телефона. Введите номер телефона и сумму пополнения. </div>
+  <div *ngIf="answer=='balans'">Это ваш текущий баланс: </div>
+  <div *ngIf="answer=='curs'">Курс валют на 20.05.2021:</div>
+  <div *ngIf="answer=='weather'">Исходя данных сайта сейчас . </div>
+  <div *ngIf="answer=='isday'">Сегодня 20 мая, четверг.</div>
+  <div *ngIf="answer=='time'">Часы работы банка сегодня такие: . Банкоматы и инфокиоски работаеют круглосуточно.</div>-->
+  <div style="display: grid">
+    <div class="question">{{obj[0]}}</div>
+    <select name="first-question" #t (change)="changeCity(t.value)">
+      <option *ngFor="let item1 of values_ru" [value]="item1.value">{{item1.mean}}</option>
+    </select>
+    <div *ngFor="let item of obj">
+      <div [ngClass]="{'question': item.substring(0,2) == ':a',
+                    'answer' : item.substring(0,2) == ':q'}" *ngIf="item!=obj[0] && item!=obj[1]">{{item}}</div>
+      <select name="first-question" #t (change)="changeCity(t.value)">
+        <option *ngFor="let item1 of values_ru" [value]="item1.value">{{item1.mean}}</option>
+      </select>
+    </div>
+  </div>
+</div>
